@@ -7,3 +7,5 @@ My solution finds 201 faces that differ most by Standard deviation of channels o
 Repository contains data folder with train and test folders and solution written in Python language in Jupyter notebook format.
 
 Problem can be found here: https://judge.nitro-ai.org/competitions/aiis/aiis-winter-contest/2
+
+Special thanks to Morariu Tudor @morariutudor and Alexandru Ionut Tone @tonealexandru236 for designing this problem.
