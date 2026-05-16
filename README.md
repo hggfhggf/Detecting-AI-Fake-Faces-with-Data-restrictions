@@ -1,13 +1,34 @@
-Solution to an interesting task from Artificial Intelligence Implementation Show Winter Contest. 
+# AI Fake Face Detection
 
-The problem is about hunting "ghosts" which intead implies detecting AI fake faces. Task Restriction is that train_data has only true images (real people photos), while test_data has both types of faces mixed. The goal is to build classifier without using any external data. 
+Solution to an interesting task from the **Artificial Intelligence Implementation Show Winter Contest**.
 
-My first solution finds 201 faces that differ from Train Real Images most by Standard deviation of channels of image. Code assumes those are Fake images and trains simple classifier. Achieveng about 0.75 F1-score.
+The problem is framed as hunting “ghosts,” which in practice means detecting AI-generated fake faces. The main restriction is that the training set contains only real human faces, while the test set contains a mix of real and fake faces. The goal is to build a classifier without using any external data.
 
-By analyzing data, i found that fake faces have smooth but combined faces. Using this observation i create fake data by merging two random images. Then i use resnet18 embeddings and on this data i train simple sklearn Logistic Regression. This solution achives 0.92 F1-score.
+## Approach
 
-Repository contains data folder with train and test folders and solution written in Python language in Jupyter notebook format.
+My first approach identified 201 test images that differed the most from the real training images based on the standard deviation of image color channels. I treated these images as likely fake and trained a simple classifier, achieving about **0.75 F1-score**.
 
-Problem can be found here: https://judge.nitro-ai.org/competitions/aiis/aiis-winter-contest/2
+After further data analysis, I noticed that fake faces often looked overly smooth and visually mixed. Based on this observation, I generated synthetic fake examples by merging pairs of random real images.
 
-Special thanks to Morariu Tudor @morariutudor and Alexandru Ionut Tone @tonealexandru236 for designing this problem.
+Then I extracted embeddings using **ResNet18** and trained a simple **scikit-learn Logistic Regression** classifier on this generated data. This approach achieved about **0.92 F1-score**.
+
+## Repository Contents
+
+This repository contains:
+
+- `data/train` — real human face images used for training
+- `data/test` — mixed real and fake face images used for testing
+- Jupyter Notebook solution written in Python
+
+## Result
+
+Best solution: **0.92 F1-score**
+
+## Problem
+
+Problem link:  
+https://judge.nitro-ai.org/competitions/aiis/aiis-winter-contest/2
+
+## Credits
+
+Special thanks to **Morariu Tudor** (@morariutudor) and **Alexandru Ionut Tone** (@tonealexandru236) for designing this problem.
